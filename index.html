@@ -1,1 +1,47 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Bolão Brasil 2026</title><meta name="theme-color" content="#061a44"><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css"></head><body><div id="app"></div><script type="module" src="app.js"></script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Bolão Seleção Brasileira</title>
+  <meta name="theme-color" content="#061a38" />
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-bg"></div>
+  <main id="app" class="app">
+    <section id="loginScreen" class="screen active login-screen">
+      <div class="brand-card glass">
+        <div class="badge">🇧🇷 Bolão Premium</div>
+        <h1>Bolão da Seleção Brasileira</h1>
+        <p>Entre com seu WhatsApp para palpitar somente nos jogos do Brasil.</p>
+        <form id="loginForm" class="form">
+          <label>Seu nome<input id="nameInput" required placeholder="Ex: Kelly" autocomplete="name"></label>
+          <label>WhatsApp<input id="phoneInput" required inputmode="tel" placeholder="(14) 99999-9999"></label>
+          <button class="btn primary" type="submit">Entrar no Bolão</button>
+        </form>
+        <button id="adminShortcut" class="link-btn">Sou administradora</button>
+      </div>
+    </section>
+
+    <section id="homeScreen" class="screen">
+      <header class="topbar glass"><div><small>Bolão</small><strong>Seleção Brasileira</strong></div><button id="logoutBtn" class="icon-btn">Sair</button></header>
+      <div class="hero glass"><span>🇧🇷</span><div><h2>Jogos do Brasil</h2><p>Atualização automática via Firebase + GitHub Actions. Em modo local, funciona com dados salvos no navegador.</p></div></div>
+      <nav class="tabs glass">
+        <button data-tab="games" class="tab active">Jogos</button>
+        <button data-tab="ranking" class="tab">Ranking</button>
+        <button data-tab="mybets" class="tab">Meus palpites</button>
+        <button data-tab="admin" class="tab admin-only">Admin</button>
+      </nav>
+      <section id="games" class="panel active"><div id="gamesList" class="cards"></div></section>
+      <section id="ranking" class="panel"><div id="rankingList" class="rank-list"></div></section>
+      <section id="mybets" class="panel"><div id="myBetsList" class="cards"></div></section>
+      <section id="admin" class="panel"><div id="adminGate" class="glass admin-gate"><h3>Acesso admin</h3><p>PIN padrão: 2026. Troque no arquivo <b>app.js</b>.</p><input id="adminPin" inputmode="numeric" placeholder="Digite o PIN"><button id="adminLogin" class="btn primary">Entrar no Admin</button></div><div id="adminPanel" class="admin-panel hidden"></div></section>
+    </section>
+  </main>
+  <template id="gameTpl"><article class="game-card glass"><div class="game-head"><span class="status"></span><span class="date"></span></div><div class="match"><strong class="home"></strong><span class="score"></span><strong class="away"></strong></div><form class="bet-form"><input class="homeGoals" inputmode="numeric" maxlength="2" placeholder="0"><span>x</span><input class="awayGoals" inputmode="numeric" maxlength="2" placeholder="0"><button class="btn small" type="submit">Salvar palpite</button></form><p class="saved"></p></article></template>
+  <script src="firebase-config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

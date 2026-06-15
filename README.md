@@ -1,39 +1,27 @@
-# Bolão Brasil 2026 - versão corrigida
+# Bolão Seleção Brasileira - Premium Plus
 
-Esta versão tem os botões corrigidos e funciona em dois modos:
+Funciona localmente sem Firebase e fica automático quando você configurar Firebase + GitHub Actions.
 
-1. **Modo teste local**: funciona mesmo sem Firebase configurado. Os dados ficam salvos no celular/computador usado.
-2. **Modo online Firebase**: login real, palpites de todos, ranking e admin sincronizados para todos.
+## Login
+- Usuário entra com Nome + WhatsApp.
+- Admin é só você, pelo PIN padrão `2026`.
+- Para trocar o PIN, edite `ADMIN_PIN` no arquivo `app.js`.
 
-## Para testar agora
-
-Abra `index.html` ou publique na Vercel. Se o Firebase ainda estiver como `COLE_AQUI`, entre pelo botão **Entrar e testar**. Os botões de menu, palpites, admin, atualizar resultado e limpar ranking já funcionam.
-
-## Admin
-
-PIN padrão: `2026`
-
-Troque no arquivo:
-
-```js
-firebase-config.js
-export const ADMIN_PIN = "2026";
-```
-
-## Para funcionar online para todos
-
+## Automático
+Para atualizar sozinho:
 1. Crie projeto no Firebase.
-2. Ative Authentication > Email/password.
-3. Ative Firestore Database.
-4. Copie a configuração Web do Firebase.
-5. Cole no arquivo `firebase-config.js`.
-6. Envie para o GitHub.
-7. Publique na Vercel.
+2. Ative Firestore.
+3. Cole a config Web em `firebase-config.js`.
+4. Gere chave privada em Firebase > Configurações > Contas de serviço.
+5. No GitHub, crie os Secrets:
+   - FIREBASE_PROJECT_ID
+   - FIREBASE_CLIENT_EMAIL
+   - FIREBASE_PRIVATE_KEY
+   - FOOTBALL_API_URL
+   - FOOTBALL_API_KEY, se sua API exigir.
+6. Vá em Actions > Atualizar jogos do Brasil > Run workflow.
 
-## Como colocar os jogos do Brasil
+O script filtra somente Brazil/Brasil/BRA.
 
-Entre no site como admin, use **Enviar jogos JSON** e envie a lista. Também pode deixar o GitHub Actions atualizar automaticamente depois que configurar os secrets.
-
-## Limpar histórico de ranking
-
-Admin > Limpar histórico de ranking. Isso apaga todos os palpites e zera o ranking.
+## Hospedagem
+Suba no GitHub e importe na Vercel.
