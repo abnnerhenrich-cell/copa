@@ -1,1 +1,1 @@
-{"scripts":{"dev":"vercel dev","start":"vercel dev"},"dependencies":{}}
+{"name":"bolao-brasil-2026-auto","version":"1.0.0","private":true,"scripts":{"update":"node scripts/update-results.js","dev":"npx serve ."},"dependencies":{"firebase-admin":"^12.5.0"},"devDependencies":{"serve":"^14.2.4"}}
