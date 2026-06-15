@@ -1,1 +1,1 @@
-{"name":"Bolão Seleção Brasileira","short_name":"Bolão Brasil","start_url":".","display":"standalone","background_color":"#041023","theme_color":"#061a38","icons":[]}
+{"name":"Bolão Seleção Brasileira","short_name":"Bolão Brasil","start_url":"./index.html","display":"standalone","background_color":"#06101f","theme_color":"#051225","icons":[{"src":"assets/icon.svg","sizes":"512x512","type":"image/svg+xml"}]}
